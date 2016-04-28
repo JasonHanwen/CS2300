@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter=new google.maps.LatLng(42.436968,-76.47752);
+var WashingtonDC =new google.maps.LatLng(38.9071923,-77.0368707);
+var Florida=new google.maps.LatLng(27.6648274,-81.5157535);
+var Seattle=new google.maps.LatLng(47.6062095,-122.3320708);
+var newYork=new google.maps.LatLng(40.7127837,-74.0059413);
+var China=new google.maps.LatLng(39.9042110,116.4073950);
+function initialize() {
+  var mapProp = {
+    center:myCenter,
+    zoom:1,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+// set the marker in html, set the China Ithaca, Seattle position
+  var marker=new google.maps.Marker({
+    position:myCenter,
+    animation:google.maps.Animation.BOUNCE
+    });
+  marker.setMap(map);
+
+  var infowindow = new google.maps.InfoWindow({
+  content:"Cornell Univeristy",
+  maxWidth: 50
+  });
+
+ infowindow.open(map,marker);
+
+  var marker=new google.maps.Marker({
+    position:China,
+    animation:google.maps.Animation.BOUNCE
+    });
+  marker.setMap(map);
+
+  var infowindow = new google.maps.InfoWindow({
+  content:"home country",
+  maxWidth: 50
+  });
+ infowindow.open(map,marker);
+
+  var marker=new google.maps.Marker({
+    position:Seattle,
+    animation:google.maps.Animation.BOUNCE
+    });
+  marker.setMap(map);
+
+  var infowindow = new google.maps.InfoWindow({
+  content:"dream begins",
+  maxWidth: 50
+  });
+ infowindow.open(map,marker);
+
+  var myTrip=[China,myCenter,Seattle];
+  var flightPath=new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2
+  });
+
+  flightPath.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+// }
+</script>
+</head>
+
+<body>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</body>
+</html>
