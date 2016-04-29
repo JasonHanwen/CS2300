@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter=new google.maps.LatLng(42.436968,-76.47752);
+var WashingtonDC =new google.maps.LatLng(38.9071923,-77.0368707);
+var Florida=new google.maps.LatLng(27.6648274,-81.5157535);
+var Seattle=new google.maps.LatLng(47.6062095,-122.3320708);
+var newYork=new google.maps.LatLng(40.7127837,-74.0059413);
+var China=new google.maps.LatLng(39.9042110,116.4073950);
+var Philadelphia=new google.maps.LatLng(39.9525839,-75.1652215);
+function initialize() {
+  var mapProp = {
+    center:myCenter,
+    zoom:4,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+// set the marker in html, set the China Ithaca, Seattle position
+  var marker=new google.maps.Marker({
+    position:myCenter,
+    animation:google.maps.Animation.BOUNCE
+    });
+  marker.setMap(map);
+
+  var infowindow = new google.maps.InfoWindow({
+  content:"Cornell study begins",
+  maxWidth: 100,
+  maxHeight: 25
+  });
+
+ infowindow.open(map,marker);
+
+  var marker=new google.maps.Marker({
+    position:Florida,
+    animation:google.maps.Animation.BOUNCE
+    });
+  marker.setMap(map);
+
+  var infowindow = new google.maps.InfoWindow({
+  content:"Florida life begins",
+  maxWidth: 100,
+  maxHeight: 25
+  });
+ infowindow.open(map,marker);
+
+ var marker=new google.maps.Marker({
+   position:newYork,
+   animation:google.maps.Animation.BOUNCE
+   });
+ marker.setMap(map);
+
+ var infowindow = new google.maps.InfoWindow({
+ content:"NewYork Capital begins",
+ maxWidth: 100,
+ maxHeight: 25
+ });
+infowindow.open(map,marker);
+
+var marker=new google.maps.Marker({
+  position:Seattle,
+  animation:google.maps.Animation.BOUNCE
+  });
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+content:"Seattle dream begins",
+maxWidth: 100,
+maxHeight: 25
+});
+infowindow.open(map,marker);
+
+var marker=new google.maps.Marker({
+  position:WashingtonDC,
+  animation:google.maps.Animation.BOUNCE,
+  });
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+content:"DC love begins",
+maxWidth: 100,
+maxHeight: 50
+});
+infowindow.open(map,marker);
+
+var myTrip=[myCenter,Florida, WashingtonDC, newYork, Seattle];
+  var flightPath=new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2
+  });
+
+  // var myTrip=[China,myCenter,Seattle];
+  // var flightPath=new google.maps.Polyline({
+  // path:myTrip,
+  // strokeColor:"#0000FF",
+  // strokeOpacity:0.8,
+  // strokeWeight:2
+  // });
+
+  flightPath.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+// }
+</script>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Hanwen Wang</title>
+
+<link rel="icon" type=type="image/jpg" href="../img/logos/Real-Madrid-logo.jpg">
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../css/agency.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<audio autoplay="" controls="" loop="" preload="">
+  <source src="http://192.254.184.234/~tangh/01_admin_resources/Shimmer/ogg/Smile.ogg" type="audio/ogg"></source>
+  <source src="http://192.254.184.234/~tangh/01_admin_resources/Shimmer/mp3/Smile.mp3" type="audio/mpeg"></source>
+   Your browser does not support the audio element.
+</audio>
+
+<body>
+<div id="page-top" class="index">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand page-scroll" href="../index.html">Hanwen Wang's Personal Website</a>
+          </div>
+      </div>
+      <!-- /.container-fluid -->
+  </nav>
+</div>
+ <!-- this is to casue the empty before the nap picture -->
+<!-- <div style="width:840px;height:50px;" class="container text-center"></div> -->
+<div class="row"><div class="col-lg-12 text-center"><h2 class="section-heading">Travel map in America</h2></div></div>
+<div id="googleMap" style="width:840px;height:500px;" class="container text-center"></div>
+<div id="travelInfo">
+    <div id="Boston" class="row">
+      <br></br>
+      <h4 class="section-subheading text-muted text-center">Boston picture</h4>
+     <div class="col-md-6 col-sm-6 text-center">
+      <img src="../img/travel/Boston/MIT.jpg" class="img-responsive img-center center-block" alt="MIT picture">
+    </div>
+    <div class="col-md-6 col-sm-6 text-center">
+      <img src="../img/travel/Boston/BostonLibrary.jpg" class="img-responsive img-center center-block" alt="Boston Library">
+    </div>
+
+    <div id="NewYork" class="row">
+      <h4 class="section-subheading text-muted text-center">I went to New York several times, the uptown and downtown leave me a deep impression </h4>
+      <img src="../img/travel/NewYork/wall_street.jpg" class="img-responsive img-center center-block" alt="Wall street picture">
+    </div>
+    <div id="Florida" class="row">
+      <h4 class="section-subheading text-muted text-center">I traveled in Florida in Dec, 2015, that is a good journey </h4>
+      <img src="../img/travel/Florida/islands.jpg" class="img-responsive img-center center-block" alt="Key islands in Florida">
+    </div>
+    <div id="Washington" class="row">
+      <h4 class="section-subheading text-muted text-center">I went to WashigntonDc twice, one is on Jan, 2016, another is on March.2016 </h4>
+      <img src="../img/travel/washington/washington.jpg" class="img-responsive img-center center-block" alt="Washinton DC Flower">
+    </div>
+    <div id="Philadelphia">
+      <h4 class="section-subheading text-muted text-center">I went to Philadelphia on March 2016,a city with history, has owns pennsylvania university</h4>
+    </div>
+<div>
+
+</body>
+</html>
